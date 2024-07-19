@@ -20,12 +20,14 @@ book.getDetails = function () {
 console.log(book.getDetails());
 
 
-book.updateYear = (year) => {
-    book.year = year;
+book.updateYear = (newYear) => {
+    book.year = newYear;
 }
 
-book.updateYear(2024);
-console.log(book);
+book.updateYear("2024");
+// console.log(book);
+console.log(JSON.stringify(book, null, 2));
+
 
 //Activity 03 
 
@@ -51,3 +53,21 @@ console.log(`Library Name: ${library.name}`);
 library.books.forEach(book => {
     console.log(`Book Title: ${book.title}`);
 });
+
+//Activity 04
+
+book.getTitleAndYear = function () {
+    return `${this.title} (${this.year})`;
+};
+
+console.log(book.getTitleAndYear());
+
+
+for (let key in book) {
+    if (book.hasOwnProperty(key)) {
+        console.log(`${key}: ${book[key]}`);
+    }
+}
+
+console.log("Keys:", Object.keys(book));
+console.log("Values:", Object.values(book));
